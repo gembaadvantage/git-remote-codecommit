@@ -22,12 +22,37 @@ SOFTWARE.
 
 package main
 
-import "os"
+import "testing"
 
-func main() {
-	cmd := newRootCmd(os.Stdout, os.Args[1:])
+func TestIdentifyProfile(t *testing.T) {
+	tests := []struct {
+		name     string
+		url      string
+		expected string
+	}{
+		{
+			name:     "WithProfile",
+			url:      "codecommit::eu-west-1://profile@repository",
+			expected: "profile",
+		},
+		{
+			name:     "NoProfile",
+			url:      "codecommit::eu-west-1://repository",
+			expected: "",
+		},
+		{
+			name:     "InvalidURL",
+			url:      "codecommit::eu-west-1://",
+			expected: "",
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			profile := identifyProfile(tt.url)
 
-	if err := cmd.Execute(); err != nil {
-		os.Exit(1)
+			if profile != tt.expected {
+				t.Errorf("expected %s but received %s\n", tt.expected, profile)
+			}
+		})
 	}
 }

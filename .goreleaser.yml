@@ -70,7 +70,7 @@ brews:
       name: homebrew-tap
     folder: Formula
     homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
-    description: "Semantic versioning the easy way"
+    description: "A git remote helper that removes the need for dedicated CodeCommit user credentials"
     license: MIT
     install: |
       bin.install "git-remote-codecommit"
@@ -82,5 +82,5 @@ scoop:
     owner: gembaadvantage
     name: scoops
   homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
-  description: "Semantic versioning the easy way"
+  description: "A git remote helper that removes the need for dedicated CodeCommit user credentials"
   license: MIT
