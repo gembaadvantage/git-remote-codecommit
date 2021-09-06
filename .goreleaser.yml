@@ -1,0 +1,86 @@
+# Copyright (c) 2021 Gemba Advantage
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# in the Software without restriction, including without limitation the rights
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+builds:
+  - id: git-remote-codecommit
+    main: ./cmd/grc
+    binary: git-remote-codecommit
+    ldflags:
+      - -s -w
+      - -X github.com/gembaadvantage/git-remote-codecommit/internal/version.version={{.Tag}}
+      - -X github.com/gembaadvantage/git-remote-codecommit/internal/version.gitCommit={{.Commit}}
+      - -X github.com/gembaadvantage/git-remote-codecommit/internal/version.gitBranch=main
+      - -X github.com/gembaadvantage/git-remote-codecommit/internal/version.buildDate={{.Date}}
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - 386
+      - arm
+      - arm64
+      - ppc64le
+    goarm:
+      - 7
+    ignore:
+      - goos: darwin
+        goarch: 386
+archives:
+  - id: git-remote-codecommit-archive
+    format: tar.gz
+    name_template: |-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}-{{ .Arch }}
+    builds:
+      - git-remote-codecommit
+    replacements:
+      386: i386
+      amd64: x86_64
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - README.md
+      - LICENSE
+signs:
+  - artifacts: checksum
+brews:
+  - name: git-remote-codecommit
+    tap:
+      owner: gembaadvantage
+      name: homebrew-tap
+    folder: Formula
+    homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
+    description: "Semantic versioning the easy way"
+    license: MIT
+    install: |
+      bin.install "git-remote-codecommit"
+    test: |
+      installed_version = shell_output("#{bin}/git-remote-codecommit version --short 2>&1")
+      assert_match "v#{version}", installed_version
+scoop:
+  bucket:
+    owner: gembaadvantage
+    name: scoops
+  homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
+  description: "Semantic versioning the easy way"
+  license: MIT
