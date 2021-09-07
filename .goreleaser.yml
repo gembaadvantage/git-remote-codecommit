@@ -61,6 +61,8 @@ archives:
     files:
       - README.md
       - LICENSE
+checksum:
+  name_template: "{{ .ProjectName }}_{{ .Tag }}_checksums.txt"
 signs:
   - artifacts: checksum
 brews:
