@@ -12,7 +12,7 @@ To use [Homebrew](https://brew.sh/):
 
 ```sh
 brew tap gembaadvantage/tap
-brew install git-remote-codecommit
+brew install gembaadvantage/tap/git-remote-codecommit
 ```
 
 ### Scoop
@@ -21,6 +21,16 @@ To use [Scoop](https://scoop.sh/):
 
 ```sh
 scoop install git-remote-codecommit
+```
+
+### Script
+
+To install using a shell script:
+
+```sh
+curl https://raw.githubusercontent.com/gembaadvantage/git-remote-codecommit/master/scripts/install > install
+chmod 700 install
+./install
 ```
 
 ## Quick Start
