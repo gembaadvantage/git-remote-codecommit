@@ -70,7 +70,7 @@ download() {
     VERSION="$(wget -q https://api.github.com/repos/gembaadvantage/git-remote-codecommit/releases/latest -O - 2>&1 | grep "tag_name" | cut -d'"' -f4)"
   fi
 
-  echo "Attempting to download git-remote-codecommit v${VERSION}..."
+  echo "Attempting to download git-remote-codecommit ${VERSION}..."
 
   PACKAGE_TYPE="tar.gz"
   if [ "${OS}" == "windows" ]; then
@@ -96,7 +96,7 @@ install() {
   local extract_dir="$DOWNLOAD_DIR/git-remote-codecommit-$VERSION"
   mkdir -p $extract_dir
   tar xf "$GRC_FILE" -C "${extract_dir}"
-  sudo cp "${extract_dir}/git-remote-codecommit" "/usr/local/bin/git-remote-codecommit"
+  cp "${extract_dir}/git-remote-codecommit" "/usr/local/bin/git-remote-codecommit"
 
   echo "Installed git-remote-codecommit to /usr/local/bin"
 }

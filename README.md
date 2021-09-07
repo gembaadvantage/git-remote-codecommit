@@ -28,9 +28,7 @@ scoop install git-remote-codecommit
 To install using a shell script:
 
 ```sh
-curl https://raw.githubusercontent.com/gembaadvantage/git-remote-codecommit/master/scripts/install > install
-chmod 700 install
-./install
+curl https://raw.githubusercontent.com/gembaadvantage/git-remote-codecommit/main/scripts/install | sh
 ```
 
 ## Quick Start
