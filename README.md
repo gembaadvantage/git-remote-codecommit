@@ -23,6 +23,16 @@ To use [Scoop](https://scoop.sh/):
 scoop install git-remote-codecommit
 ```
 
+### Script
+
+To install using a shell script:
+
+```sh
+curl https://raw.githubusercontent.com/gembaadvantage/git-remote-codecommit/master/scripts/install > install
+chmod 700 install
+./install
+```
+
 ## Quick Start
 
 Clone the repository using your standard git syntax, but provide the clone URL using the `codecommit` protocol format of:
