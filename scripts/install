@@ -46,7 +46,7 @@ initOS() {
   case "$OS" in
     # Minimalist GNU for Windows
     mingw*) OS='windows';;
-	msys*) OS='windows';;
+    msys*) OS='windows';;
   esac
 }
 
@@ -80,7 +80,7 @@ download() {
   local archive="git-remote-codecommit_${VERSION}_${OS}-${ARCH}.${PACKAGE_TYPE}"
 
   DOWNLOAD_URL="https://github.com/gembaadvantage/git-remote-codecommit/releases/download/${VERSION}/${archive}"
-  DOWNLOAD_DIR="$(mktemp -dt git-remote-codecommit-install)"
+  DOWNLOAD_DIR="$(mktemp -dt git-remote-codecommit-install-XXXXXXX)"
   GRC_FILE="${DOWNLOAD_DIR}/${archive}"
 
   if [ "${HAS_CURL}" == "true" ]; then
