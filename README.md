@@ -12,7 +12,7 @@ To use [Homebrew](https://brew.sh/):
 
 ```sh
 brew tap gembaadvantage/tap
-brew install git-remote-codecommit
+brew install gembaadvantage/tap/git-remote-codecommit
 ```
 
 ### Scoop
