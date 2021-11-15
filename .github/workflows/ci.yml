@@ -49,6 +49,6 @@ jobs:
         run: make build
       - name: Tag
         if: github.ref == 'refs/heads/main'
-        uses: gembaadvantage/uplift-action@v1
+        uses: gembaadvantage/uplift-action@v2.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GH_UPLIFT }}
