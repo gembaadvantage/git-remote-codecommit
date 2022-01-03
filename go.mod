@@ -5,7 +5,7 @@ go 1.17
 require (
 	github.com/aws/aws-sdk-go-v2/config v1.8.0
 	github.com/gembaadvantage/codecommit-sign v1.1.0
-	github.com/spf13/cobra v1.2.1
+	github.com/spf13/cobra v1.3.0
 )
 
 require (
