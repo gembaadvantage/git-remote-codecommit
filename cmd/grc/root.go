@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2021 Gemba Advantage
+Copyright (c) 2022 Gemba Advantage
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -56,7 +56,7 @@ func newRootCmd(out io.Writer, args []string) *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			opts.Cmd = args[0]
 
-			// Prefix protocol, as it will have been stipped off by the git client
+			// Prefix protocol, as it will have been stripped off by the git client
 			opts.RemoteURL = "codecommit::" + args[1]
 
 			return opts.Run(out)
@@ -85,7 +85,7 @@ func (o gitOptions) Run(out io.Writer) error {
 	}
 
 	// Translate and then sign the RemoteURL
-	grcURL, err := translate.FromGrc(o.RemoteURL)
+	grcURL, err := translate.FromGRC(o.RemoteURL)
 	if err != nil {
 		return err
 	}
