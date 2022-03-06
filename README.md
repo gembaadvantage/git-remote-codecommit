@@ -15,6 +15,15 @@ brew tap gembaadvantage/tap
 brew install gembaadvantage/tap/git-remote-codecommit
 ```
 
+### GoFish
+
+To use [Fish](https://gofi.sh/):
+
+```sh
+gofish rig add https://github.com/gembaadvantage/fish-food
+gofish install github.com/gembaadvantage/fish-food/git-remote-codecommit
+```
+
 ### Scoop
 
 To use [Scoop](https://scoop.sh/):
