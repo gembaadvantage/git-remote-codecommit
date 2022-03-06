@@ -61,10 +61,13 @@ archives:
     files:
       - README.md
       - LICENSE
+
 checksum:
   name_template: "{{ .ProjectName }}_{{ .Tag }}_checksums.txt"
+
 signs:
   - artifacts: checksum
+
 brews:
   - name: git-remote-codecommit
     tap:
@@ -79,6 +82,7 @@ brews:
     test: |
       installed_version = shell_output("#{bin}/git-remote-codecommit version --short 2>&1")
       assert_match "v#{version}", installed_version
+
 scoop:
   bucket:
     owner: gembaadvantage
@@ -86,3 +90,11 @@ scoop:
   homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
   description: "A git remote helper that removes the need for dedicated CodeCommit user credentials"
   license: MIT
+
+rigs:
+  - rig:
+      owner: gembaadvantage
+      name: fish-food
+    homepage: "https://github.com/gembaadvantage/git-remote-codecommit"
+    description: "A git remote helper that removes the need for dedicated CodeCommit user credentials"
+    license: MIT
