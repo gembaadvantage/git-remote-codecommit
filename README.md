@@ -35,9 +35,10 @@ curl https://raw.githubusercontent.com/gembaadvantage/git-remote-codecommit/main
 
 Clone the repository using your standard git syntax, but provide the clone URL using the `codecommit` protocol format of:
 
-```text
-codecommit::<REGION>://<PROFILE>@<REPOSITORY>
-```
+- `codecommit://repository`
+- `codecommit://profile@repository`
+- `codecommit::region://repository`
+- `codecommit::region://profile@repository`
 
 ```sh
 $ git clone codecommit::eu-west-1://repository
@@ -52,7 +53,7 @@ Both `git pull` and `git push` operations will behave as normal.
 
 ### AWS Named Profile
 
-Depending on your chosen authentication mechansim, you may need to provide an AWS named profile to authenticate with CodeCommit. To do this, provide the named profile, suffixed with an `@`, before the repository name.
+Depending on your chosen authentication mechanism, you may need to provide an AWS named profile to authenticate with CodeCommit. To do this, prefix your repository name with `profile@`.
 
 ```sh
 git clone codecommit::eu-west-1://profile@repository
