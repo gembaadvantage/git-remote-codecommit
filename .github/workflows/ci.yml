@@ -55,7 +55,7 @@ jobs:
       - name: Test
         run: task test
       - name: Code Coverage
-        uses: codecov/codecov-action@v3.1.0
+        uses: codecov/codecov-action@v3.1.5
       - name: Build
         run: task build
       - name: Tag
