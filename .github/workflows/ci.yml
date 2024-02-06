@@ -47,7 +47,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-go-
       - name: Install Task
-        uses: arduino/setup-task@v1
+        uses: arduino/setup-task@v2
       - name: Lint
         uses: golangci/golangci-lint-action@v3.1.0
         with:
