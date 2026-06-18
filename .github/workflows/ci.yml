@@ -60,7 +60,7 @@ jobs:
         run: task build
       - name: Tag
         if: github.ref == 'refs/heads/main'
-        uses: gembaadvantage/uplift-action@v2.0.1
+        uses: gembaadvantage/uplift-action@v2.0.2
         with:
           args: tag
         env:
